@@ -31,6 +31,6 @@ jobs:
         with:
           token: ${{ secrets.TP_BUILD_ACCESS_TOKEN }}
           BRANCH: main
-          commit-message: ${{ env.MESSAGEDATA }} form @${{github.repository}}@${{github.sha}} 🚀
+          commit-message: ${{ env.MESSAGEDATA }} form @ ${{github.repository}}@${{github.sha}} 🚀
           FOLDER: ${{secrets.TP_FOLDER}}
           repository-name: 'Five-great/tinymce-plugin.github.io'

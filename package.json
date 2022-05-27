@@ -1,0 +1,39 @@
+{
+  "name": "@tinymce-plugin/tp-importword",
+  "private": false,
+  "version": "0.0.3-beta.4",
+  "main": "./index.js",
+  "module": "./index.js",
+  "unpkg": "./dist/plugin.min.js",
+  "jsdelivr": "./dist/plugin.min.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:tsc": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "author": "Li Hailong",
+  "license": "MIT",
+  "description": "导入word文档",
+  "files": [
+    "dist",
+    "index.js"
+  ],
+  "homepage": "https://github.com/tinymce-plugin/tp-importword",
+  "devDependencies": {
+    "@tinymce-plugin/vite-build": "^0.0.4",
+    "@types/node": "^17.0.23",
+    "eventproxy": "^1.0.0",
+    "jszip": "^3.9.1",
+    "tinymce": "5.8.2",
+    "tinymce-plugin": "^0.0.3-beta.10",
+    "ts-morph": "^14.0.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
+  },
+  "dependencies": {
+    "@tinymce-plugin/tp-importword": "^0.0.3-beta.2"
+  }
+}

@@ -1,0 +1,23 @@
+name: test Package
+
+on:
+  release:
+    types: [published]
+    branches:
+      - main
+jobs:
+   publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        env:
+           NODE_AUTH_TOKEN: ${{secrets.TP_NPM_TOKEN}}
+        with:
+          node-version: 16.13.x
+          registry-url: https://registry.npmjs.org/
+      - name: publish-npm
+        run: |
+          npm publish  --scope=@tinymce-plugin --access public

@@ -1,0 +1,36 @@
+name:  build-docs
+
+on: [ push, delete, create ]
+
+jobs:
+  build-and-deploy:
+    env:
+       MESSAGEDATA: ${{ github.event.head_commit.message }}
+       TPMODE: ${{secrets.TP_MODE}}
+       TP_CONFIG: ${{secrets.TP_CONFIG}}
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        with:
+         repository: ${{secrets.TP_BUILD_REPO}}
+         token: ${{ secrets.TP_BUILD_ACCESS_TOKEN }}
+         persist-credentials: false
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.x
+      - name: Install and Build
+        run: |
+          npm install --legacy-peer-deps
+          npm run build:site
+          npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          token: ${{ secrets.TP_BUILD_ACCESS_TOKEN }}
+          BRANCH: main
+          commit-message: ${{ env.MESSAGEDATA }} form @${{GITHUB_REPOSITORY}}@${{GITHUB_SHA}} 🚀
+          FOLDER: ${{secrets.TP_FOLDER}}
+          repository-name: 'Five-great/tinymce-plugin.github.io'

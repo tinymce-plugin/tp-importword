@@ -1,0 +1,6 @@
+{
+  "import word document": "Document Word à importer",
+  "Converting...": "Conversion ...",
+  "Currently only supports docx file format, if it is doc format, please convert it to docx": "Actuellement, prend en charge uniquement le format de fichier DOCX, s'il s'agit du format DOC, veuillez le convertir en docx",
+  "Import to Word succeeded": "L'importation à Word a réussi"
+}

@@ -95,3 +95,20 @@ yarn add @tinymce-plugin/tp-importword -D
 ---
 > **自行下载使用**
 这些文件可以在 [*_**unpkg**_*](https://unpkg.com/browse/tinymce-plugin/) 或者[*_**jsDelivr**_*](https://cdn.jsdelivr.net/npm/tinymce-plugin/)  这些 CDN 上浏览和下载,自行存放与使用
+
+
+:::tip 提示
+导入word 插件导入的图片默认是base64 ，需要配置 **`automatic_uploads`** 属性,同时需要保证配置了 **`images_upload_handler`**, 可将导入的图片自动上传服务器转成url链接
+
+```js {4-5}
+ import "@tinymce-plugin/tp-importword";
+ tinymce.init({
+  ...
+   images_upload_handler: (blobInfo, succFun, failFun)=>{ ... }
+   automatic_uploads: true
+   plugins: "tpImportword"
+   toolbar: "tpImportword"
+  ...
+ })
+```
+:::

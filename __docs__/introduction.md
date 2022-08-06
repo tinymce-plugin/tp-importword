@@ -8,7 +8,7 @@ sort: 9
 [![release candidate](https://img.shields.io/npm/v/@tinymce-plugin/tp-importword.svg)](https://www.npmjs.com/package/@tinymce-plugin/tp-importword)&nbsp;
 [![tinymce Version](https://img.shields.io/badge/tinymce-5.2.0~5.x.x-green.svg)](https://www.tiny.cloud)&nbsp; 
 [![GitHub license](https://img.shields.io/github/license/tinymce-plugin/tp-indent2em.svg)](https://github.com/tinymce-plugin/tp-indent2em/blob/main/LICENSE)&nbsp;
-[![tinymce Version](https://img.shields.io/npm/dw/@tinymce-plugin/tp-importword)](https://www.tiny.cloud)
+[![tinymce Version](https://img.shields.io/npm/dw/@tinymce-plugin/tp-importword)](https://github.com/tinymce-plugin/tp-importword)
 
 
 tpImportword 插件用于 `tinymce` 富文本编辑器 实现导入word功能, 并且最大可能保存布局样式与颜色等

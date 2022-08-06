@@ -46,7 +46,7 @@ title: 插件demo
       }
     </style>
     <script src='https://unpkg.com/tinymce@5/tinymce.min.js'></script>
-    <script src="https://unpkg.com/tinymce-plugin"></script>
+    <script src="/tinymce/tinymce-plugin.js"></script>
     <script src="https://unpkg.com/tinymce-plugin/langs/zh_CN.js"></script>
     <script src="https://unpkg.com/tinymce-plugin/plugins/tpImportword/plugin.min.js"></script>    
   </head>
@@ -100,8 +100,8 @@ title: 插件demo
 <script>
 import tinymce from "tinymce";
 import "tinymce-plugin";
-import TinymceVue from "/@/assets/lib/TinymceVue";
-import "tinymce-plugin/plugins/tpImportword";
+import TinymceVue from "@tinymce-plugin/tinymce-vue";
+import "tinymce-plugin/plugins/tpImportword/plugin.js";
 export default{
 name: 'domeVue3',
 components: { TinymceVue },
@@ -141,8 +141,8 @@ data(){
 <script>
 import tinymce from "tinymce";
 import "tinymce-plugin";
-import "tinymce-plugin/plugins/tpImportword";
-import TinymceVue from "/@/example/vueDemo/Tinymce-vue2.vue";
+import "tinymce-plugin/plugins/tpImportword/plugin.js";
+import TinymceVue from "@tinymce-plugin/tinymce-vue";
 export default{
 name: 'domeVue2',
 components: { TinymceVue },
@@ -173,8 +173,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import tinymce from "tinymce";
 import "tinymce-plugin";
-import "tinymce-plugin/plugins/tpIndent2em";
-import "tinymce-plugin/plugins/tpImportword";
+import "tinymce-plugin/plugins/tpIndent2em/plugin.js";
+import "tinymce-plugin/plugins/tpImportword/plugin.js";
 import { Editor } from '@tinymce/tinymce-react';
 
      class ReactDemo extends React.Component{
@@ -244,6 +244,10 @@ data(){
                 min_height: 200,
                 max_height: 700,
                 base_url:'/tinymce',
+                menubar: 'file edit  insert view format table tools help mymenubar',
+                menu: {
+                    mymenubar: {title: 'Extension', items: 'tpImportword tpI18n' },
+                },
                 plugins: 'code tpImportword preview autoresize',
                 toolbar: 'code tpImportword preview',
              

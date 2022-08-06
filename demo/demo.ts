@@ -41,7 +41,7 @@ import plugin from "../src/main"
         mymenubar: {title: 'Extension', items: `${plugin.opt.registryName}`+' tpI18n' },
     },
     min_height:240,
-    object_resizing: 'img',
+    object_resizing: 'img span.data-tp-logicflow',
     // skeletonScreen: true,
     plugins: `code ${plugin.opt.registryName}`,
     toolbar: `code ${plugin.opt.registryName} image`,

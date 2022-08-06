@@ -1,77 +1,114 @@
-# 快速上手
 ---
-## 下载安装
+title: 快速上手
+sort: 5
+---
+# 快速上手
 
- 同时更新维护 [*_**tinymce-plugin**_*](https://www.npmjs.com/package/tinymce-plugin) 和 [*_**@npkg/tinymce-plugin**_*](https://www.npmjs.com/package/@npkg/tinymce-plugin) 中。（二者同步）
+[[toc]]
+
+## 方式1
+---
+> **使用 tinymce-plugin 库**
 
 ### CDN
 
 ```html
-<script src="https://unpkg.com/tinymce-plugin"></script>
-```
-或
-```html
-<script src="https://unpkg.com/@npkg/tinymce-plugin"></script>
-```
+<script src="https://unpkg.com/tinymce-plugin/plugins/tpImportword/plugin.min.js"></script><!--引入-->
 
+<!-- 使用 -->
+<script>
+   tinymce.init({
+  ...
+   plugins: "tpImportword"
+   toolbar: "tpImportword"
+  ...
+ })
+</script>
 
+```
 ### NPM
 
+
+#### 下载 tinymce-plugin 
+<codeGroup>
+ <codeGroupItem title="NPM" active>
+
 ```sh
-npm i tinymce-plugin 或 yarn add tinymce-plugin -D
+npm i tinymce-plugin 
 ```
-或
+</codeGroupItem>
+<codeGroupItem title="YARN">
+
 ```sh
-npm i @npkg/tinymce-plugin 或 yarn add @npkg/tinymce-plugin -D
+yarn add tinymce-plugin -D 
+```
+</codeGroupItem>
+</codeGroup>
+
+#### 项目中使用
+
+```js {1,4-5}
+ import "tinymce-plugin/plugins/tpImportword/plugin.js";
+ tinymce.init({
+  ...
+   plugins: "tpImportword"
+   toolbar: "tpImportword"
+  ...
+ })
+
 ```
 
-### 自行下载
+## 方式2 
+---
+>**使用单独 [*_@tinymce-plugin/tp-importword_*](https://www.npmjs.com/package/@tinymce-plugin/tp-importword)**
 
-这些文件可以在 [*_**unpkg**_*](https://unpkg.com/browse/tinymce-plugin/) 或者[*_**jsDelivr**_*](https://cdn.jsdelivr.net/npm/tinymce-plugin/)  这些 CDN 上浏览和下载,自行存放
+#### 下载 @tinymce-plugin/tp-importword
+<codeGroup>
+ <codeGroupItem title="NPM" active>
 
-## 使用
-
-### 引入
-
-- 没有构建工具
-
-```html
-<script src="https://unpkg.com/@npkg/tinymce-plugin"></script>
+```sh
+npm i @tinymce-plugin/tp-importword
 ```
-- 使用构建工具
+</codeGroupItem>
+<codeGroupItem title="YARN">
 
-```js
- import "tinymce-plugin";
+```sh
+yarn add @tinymce-plugin/tp-importword -D 
 ```
-### 开启骨架屏（skeletonScreen）
+</codeGroupItem>
+</codeGroup>
 
-通过配置参数 **`skeletonScreen`** 来开启 [`tinymce`](https://www.tiny.cloud) 富文本框编辑器的骨架屏功能 ，改善 [`tinymce`](https://www.tiny.cloud) 富文本编辑器加载过长用户体验不佳
+
+#### 项目中使用
+
+```js {1,4-5}
+ import "@tinymce-plugin/tp-importword";
+ tinymce.init({
+  ...
+   plugins: "tpImportword"
+   toolbar: "tpImportword"
+  ...
+ })
+```
+
+## 方式3 
+---
+> **自行下载使用**
+这些文件可以在 [*_**unpkg**_*](https://unpkg.com/browse/tinymce-plugin/) 或者[*_**jsDelivr**_*](https://cdn.jsdelivr.net/npm/tinymce-plugin/)  这些 CDN 上浏览和下载,自行存放与使用
+
 :::tip 提示
- 要使用 **`skeletonScreen`** 必须 引入  [**tinymce-plugin**](https://www.npmjs.com/package/tinymce-plugin) 或 [**@npkg/tinymce-plugin**](https://www.npmjs.com/package/@npkg/tinymce-plugin)
+导入word 插件导入的图片默认是base64 ，需要配置 **`automatic_uploads`** 属性,同时需要保证配置了 **`images_upload_handler`**, 可将导入的图片自动上传服务器转成url链接
+
+```js {4-5}
+ import "@tinymce-plugin/tp-importword";
+ tinymce.init({
+  ...
+   images_upload_handler: (blobInfo, succFun, failFun)=>{ ... }
+   automatic_uploads: true
+   plugins: "tpImportword"
+   toolbar: "tpImportword"
+  ...
+ })
+```
 :::
 
-```js {4}
-import "tinymce-plugin"; 
-tinymce.init({
-  ...
-  skeletonScreen: true,
-  ...
-})
-```
-使用效果
-![skeletonScreen](assets/images/skt-demo.png?100%)
-### 引入使用收录的插件或扩展
-
-```js
-import "tinymce-plugin"; //作为一些插件的必要依赖
-import "tinymce-plugin/plugins/tpIndent2em";
-import "tinymce-plugin/plugins/tpLayout";
-import "tinymce-plugin/plugins/tpImportword";
-```
-或
-```js
-import "@npkg/tinymce-plugin"; //作为一些插件的必要依赖
-import "@npkg/tinymce-plugin/plugins/tpIndent2em";
-import "@npkg/tinymce-plugin/plugins/tpLayout";
-import "@npkg/tinymce-plugin/plugins/tpImportword";
-```

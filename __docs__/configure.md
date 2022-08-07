@@ -49,7 +49,7 @@ sort: 3
         font-size:14px;
       }
     </style>
-    <script src='https://unpkg.com/tinymce@5/tinymce.min.js'></script>
+    <script src='/tinymce/tinymce.js'></script>
     <script src="/tinymce/tinymce-plugin.js"></script>
     <script src="https://unpkg.com/tinymce-plugin/langs/zh_CN.js"></script>
     <script src="https://unpkg.com/tinymce-plugin/plugins/tpImportword/plugin.min.js"></script>    

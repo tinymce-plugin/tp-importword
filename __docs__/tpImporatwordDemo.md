@@ -48,7 +48,7 @@ title: 插件demo
     <script src='/tinymce/tinymce.js'></script>
     <script src="/tinymce/tinymce-plugin.js"></script>
     <script src="https://unpkg.com/tinymce-plugin/langs/zh_CN.js"></script>
-    <script src="https://unpkg.com/tinymce-plugin/plugins/tpImportword/plugin.min.js"></script>    
+    <script src="https://unpkg.com/tinymce-plugin/plugins/tpLayout/plugin.min.js"></script>    
   </head>
   <body tp-page-height="298">
     <div>
@@ -66,12 +66,12 @@ title: 插件demo
         selector: 'textarea.tinymce',
         language: 'zh_CN',
         skeletonScreen: true,
-        plugins: 'code tpImportword autoresize',
-        toolbar: 'code tpImportword'
+        plugins: 'code tpLayout autoresize',
+        toolbar: 'code tpLayout'
         });
 
      var openPlugin=()=>{
-       tinymce.activeEditor.execCommand('mceTpImportword');
+       tinymce.activeEditor.execCommand('mceTpLayout');
      }
     </script>
   </body>
@@ -101,7 +101,7 @@ title: 插件demo
 import tinymce from "tinymce";
 import "tinymce-plugin";
 import TinymceVue from "@tinymce-plugin/tinymce-vue";
-import "tinymce-plugin/plugins/tpImportword/plugin.js";
+import "tinymce-plugin/plugins/tpLayout/plugin.js";
 export default{
 name: 'domeVue3',
 components: { TinymceVue },
@@ -113,8 +113,8 @@ data(){
                 max_height: 700,
                 skeletonScreen: true,
                 base_url:'/tinymce',
-                plugins: 'code tpImportword preview autoresize',
-                toolbar: 'code tpImportword preview',
+                plugins: 'code tpLayout preview autoresize',
+                toolbar: 'code tpLayout preview',
              
         }
     }
@@ -141,7 +141,7 @@ data(){
 <script>
 import tinymce from "tinymce";
 import "tinymce-plugin";
-import "tinymce-plugin/plugins/tpImportword/plugin.js";
+import "tinymce-plugin/plugins/tpLayout/plugin.js";
 import TinymceVue from "@tinymce-plugin/tinymce-vue";
 export default{
 name: 'domeVue2',
@@ -174,7 +174,6 @@ import ReactDOM from 'react-dom';
 import tinymce from "tinymce";
 import "tinymce-plugin";
 import "tinymce-plugin/plugins/tpIndent2em/plugin.js";
-import "tinymce-plugin/plugins/tpImportword/plugin.js";
 import { Editor } from '@tinymce/tinymce-react';
 
      class ReactDemo extends React.Component{

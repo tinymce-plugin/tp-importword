@@ -28,7 +28,6 @@ sort: 5
 ```
 ### NPM
 
-
 #### 下载 tinymce-plugin 
 <codeGroup>
  <codeGroupItem title="NPM" active>

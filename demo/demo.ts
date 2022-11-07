@@ -1,7 +1,7 @@
 
 
-import  "tinymce/skins/ui/oxide/skin.min.css"
-import  "tinymce/skins/ui/oxide/content.min.css"
+// import  "tinymce/skins/ui/oxide/skin.min.css"
+// import  "tinymce/skins/ui/oxide/content.min.css"
 import  tinymce, { Editor } from "tinymce"
 import  "tinymce-plugin"
 import  "tinymce-plugin/langs/zh_CN"
@@ -28,10 +28,10 @@ import plugin from "../src/main"
   tinymce.init({
     selector: 'div#mytextarea',
     menubar: 'file edit  insert view format table tools help mymenubar',
-    skin: false,
+    // skin: false,
     tp_i18n: true,
     tp_i18n_langs: true,
-    content_css: false,
+    // content_css: false,
     language: 'en',
     external_plugins:{
         image: "/tinymce/plugins/image/plugin.js"
@@ -41,10 +41,16 @@ import plugin from "../src/main"
         mymenubar: {title: 'Extension', items: `${plugin.opt.registryName}`+' tpI18n' },
     },
     min_height:240,
-    object_resizing: 'img span.data-tp-logicflow',
     // skeletonScreen: true,
-    plugins: `code ${plugin.opt.registryName}`,
-    toolbar: `code ${plugin.opt.registryName} image`,
+    base_url:"/tinymce",
+    plugins: `code ${plugin.opt.registryName} image imagetools`,
+    toolbar: `code ${plugin.opt.registryName} image imagetools`,
+    images_upload_handler: function (blobInfo, succFun, failFun) {
+      var file = blobInfo.blob();
+        var DOMURL = window.URL || window.webkitURL || window;
+        succFun(DOMURL.createObjectURL(file))
+        // succFun("https://github.com/five-great")
+   },
   })
 });
        //@ts-ignore

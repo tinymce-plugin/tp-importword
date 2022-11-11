@@ -10,7 +10,8 @@ import  "tinymce/icons/default"
 import  "tinymce/plugins/code"
 import  "tinymce/plugins/imagetools"
 import  "tinymce/plugins/media"
-
+//@ts-ignore
+tinymcePlugin.setDev()
 import plugin from "../src/main"
 //@ts-ignore
   tinymce.init({
@@ -47,9 +48,14 @@ import plugin from "../src/main"
     toolbar: `code ${plugin.opt.registryName} image imagetools`,
     images_upload_handler: function (blobInfo, succFun, failFun) {
       var file = blobInfo.blob();
+      // console.log(blobInfo.base64());
+      // console.log(blobInfo);
+      // console.log(blobInfo.filename());
+      // console.log(blobInfo.name());
+      // console.log(failFun);
         var DOMURL = window.URL || window.webkitURL || window;
         succFun(DOMURL.createObjectURL(file))
-        // succFun("https://github.com/five-great")
+        // succFun("https://github.com/five-great.png")
    },
   })
 });
